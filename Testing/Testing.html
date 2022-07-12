@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ----------------------------------
+Css Profile Edit Dropdown
+Author: iModDesign
+Version: 1.0
+------------------------------------ */
+        ul,
+        li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .profile-wrapper {
+            width: 200px;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        .profile-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            border-color: #333 transparent transparent;
+            border-width: 6px;
+            border-style: solid;
+        }
+
+        .profile-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            border-color: #eee transparent transparent;
+            border-width: 6px;
+            border-style: solid;
+        }
+
+        .profile-wrapper:hover::after {
+            border-color: #111 transparent transparent;
+        }
+
+        .profile {
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 #555 inset, 0 1px 7px #111;
+            background: #fff
+        }
+
+        .profile:hover {
+            cursor: pointer;
+            background: #fff
+        }
+
+        .profile .name {
+            font-size: 20px;
+            color: #000;
+            line-height: 26px;
+            margin-left: 10px;
+        }
+
+        .profile .name:hover {
+            color: #0088cc;
+        }
+
+        .profile .userImg {
+            width: 30px;
+            display: inline;
+            float: left;
+            border: 1px solid #111;
+            border-radius: 3px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset;
+        }
+
+        /* hide menu */
+        .menu {
+            display: none;
+            clear: both;
+            margin: 20px 0 0 0;
+        }
+
+        .menu .li_acc {
+            font-size: 12px;
+            margin: 0;
+            padding: 10px 4px;
+        }
+
+        .menu .li_acc a {
+            color: #000;
+        }
+
+        .menu .li_acc:hover>a {
+            color: #000;
+        }
+
+        .menu .li_acc:hover {
+            border-left: 1px solid #111;
+            border-right: 1px solid #222;
+            border-bottom: 1px solid #222;
+            border-top: 1px solid #111;
+            border-radius: 3px;
+        }
+
+        .profile:hover .menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-5">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Pricing</a>
+                    </li>
+                </ul> 
+            </div>
+        </div>
+    </nav>-->
+
+        <!-- <nav class="menu">
+        <ol>
+          <li class="menu-item">
+            <a href="#0" class="widgets">
+              <i class="ion ion-ios-aperture-outline"></i>
+              <span>Widgets</span>
+              <div class="dots"></div>
+            </a>
+            <ol class="sub-menu">
+              <li class="menu-item item--a"><a href="#0" class="item--a"><span>Big Widgets</span></a></li>
+              <li class="menu-item item--b"><a href="#0" class="item--b"><span>Bigger Widgets</span></a></li>
+              <li class="menu-item item--b"><a href="#0" class="item--c"><span>Huge Widgets</span></a></li>
+            </ol>
+          </li>
+        </ol>
+      </nav> -->
+    </div>
+
+    <ul class="profile-wrapper">
+        <li>
+            <!-- user profile -->
+            <div class="profile">
+                <img class="userImg" src="http://gravatar.com/avatar/0e1e4e5e5c11835d34c0888921e78fd4?s=80" />
+                <a href="http://swimbi.com" class="name">Account</a>
+
+                <!-- more menu -->
+                <ul class="menu">
+                    <li class="li_acc"><a href="#">Edit</a></li>
+                    <li class="li_acc"><a href="#">Change Password</a></li>
+                    <li class="li_acc"><a href="#">Log out</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
