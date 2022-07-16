@@ -13,13 +13,91 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../../style/style.css">
+    <style>
+        .get-in-touchpay {
+            max-width: 450px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .get-in-touchpay .titlepay {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 3em;
+            line-height: 48px;
+            padding-bottom: 48px;
+            color: #5543ca;
+            background: #5543ca;
+            background: -moz-linear-gradient(left, #f4524d 0%, #5543ca 100%) !important;
+            background: -webkit-linear-gradient(left, #f4524d 0%, #5543ca 100%) !important;
+            background: linear-gradient(to right, #f4524d 0%, #5543ca 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        .contact-formpay .form-fieldpay {
+            position: relative;
+            margin: 32px 0;
+        }
+
+        .contact-formpay .input-textpay {
+            display: block;
+            width: 100%;
+            height: 36px;
+            border-width: 0 0 2px 0;
+            border-color: #5543ca;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 400;
+        }
+
+        .contact-formpay .input-textpay:focus {
+            outline: none;
+        }
+
+        .contact-formpay .input-textpay:focus+.labelpay,
+        .contact-formpay .input-textpay.not-empty+.labelpay {
+            -webkit-transform: translateY(-24px);
+            transform: translateY(-24px);
+        }
+
+        .contact-formpay .labelpay {
+            position: absolute;
+            left: 20px;
+            bottom: 11px;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 400;
+            color: #5543ca;
+            cursor: text;
+            transition: -webkit-transform .2s ease-in-out;
+            transition: transform .2s ease-in-out;
+            transition: transform .2s ease-in-out,
+                -webkit-transform .2s ease-in-out;
+        }
+
+        .contact-formpay .submit-btnpay {
+            display: inline-block;
+            background-color: #000;
+            background-image: linear-gradient(125deg, #a72879, #064497);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            padding: 8px 16px;
+            border: none;
+            width: 200px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <div id="body-pd" class="NAVBAR_">
         <header class="header" id="header">
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-            <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+            <div class="header_img"> <img src="../../img/account.png" alt=""> </div>
         </header>
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
@@ -52,7 +130,87 @@
 
     </div>
 
+    <div class="row">
+        <div class="col-lg-6">
+            <section class="get-in-touchpay">
+                <h1 class="titlepay">Payment</h1>
+                <form class="contact-formpay row">
+                    <div class="form-fieldpay col-lg-6">
+                        <input id="name" class="input-textpay js-input" type="text" placeholder="Name">
+                        <labelpay class="labelpay" for="name"></labelpay>
+                    </div>
+                    <div class="form-fieldpay col-lg-6 ">
+                        <input id="email" class="input-textpay js-input" type="email" placeholder="E-mail" required>
+                        <labelpay class="labelpay" for="email"></labelpay>
+                    </div>
+                    <div class="form-fieldpay col-lg-6 ">
+                        <input id="contact" class="input-textpay js-input" type="text" placeholder="Contact Number"
+                            required>
+                        <labelpay class="labelpay" for="company"></labelpay>
+                    </div>
+                    <div class="form-fieldpay col-lg-6 ">
+                        <input id="amount" class="input-textpay js-input" type="text" placeholder="Amount" required>
+                        <labelpay class="labelpay" for="phone"></labelpay>
+                    </div>
+                    <div class="form-fieldpay col-lg-6 ">
+                        <input id="date" class="input-textpay js-input" type="date" placeholder="">
+                        <labelpay class="labelpay" for="date"></labelpay>
+                    </div>
+                    <div class="form-fieldpay col-lg-6 ">
+                        <input id="transac" class="input-textpay js-input" type="text" placeholder="Transaction Id"
+                            required>
+                        <labelpay class="labelpay" for="transaction"></labelpay>
+                    </div>
+                    <div class="form-fieldpay col-lg-12">
+                        <input id="message" class="input-textpay js-input" type="text" placeholder="Message" required>
+                        <labelpay class="labelpay" for="message"></labelpay>
+                    </div>
+                    <div class="form-fieldpay col-lg-12">
+                        <input class="submit-btnpay" type="submit" value="Submit" onclick="addEntry()">
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="col-lg-6 mt-4" style="padding-top: 15px;">
+            <table>
+                <tr>
+                    <th class="p-4">Sl no.</th>
+                    <th class="p-4">Date</th>
+                    <th class="p-4">Name</th>
+                    <th class="p-4">Amount</th>
+                    <th class="p-4">Contact</th>
+                </tr>
+                <tr id="entry1">
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function addEntry() {
+            let entry1n = document.getElementById('name').value
+            let entry1e = document.getElementById('email').value
+            let entry1c = document.getElementById('contact').value
+            let entry1a = document.getElementById('amount').value
+            let entry1d = document.getElementById('date').value
+            let entry1t = document.getElementById('transac').value
+            let entry1m = document.getElementById('message').value
 
+            let slno = 1;
+            let i = 0;
+            let entries = []
+
+            entries[0] = `
+                <td class="ps-4" id="entry1">${slno}</td>
+                <td class="ps-4" id="entry1">${entry1d}</td>
+                <td class="ps-4" id="entry1">${entry1n}</td>
+                <td class="ps-4" id="entry1">${entry1a}</td>
+                <td class="ps-4" id="entry1">${entry1c}</td>
+                `
+
+            document.getElementById('entry1').innerHTML = entries[0]
+
+        }
+    </script>
     <script src="../../script/Nav.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

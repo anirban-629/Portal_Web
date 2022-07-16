@@ -283,7 +283,6 @@
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <button class="hov">Sign Up</button>
-                <a href="../homePg/home.html">HOME PAGE</a>
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -295,10 +294,13 @@
                     <a href="../errorPg/errorPage.html" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input id="emailLOGIN" type="email" placeholder="Email" />
+                <input id="passLOGIN" type="password" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
-                <button class="hov">Sign In</button>
+                <button class="hov" onclick="auth()">Sign In</button>
+                <span style="margin-top:10px;">default</span>
+                <span>example@example.com</span>
+                <span>example</span>
             </form>
         </div>
         <div class="overlay-container">
@@ -328,6 +330,20 @@
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
+
+        function auth() {
+            let email = document.getElementById('emailLOGIN').value
+            let pass = document.getElementById('passLOGIN').value
+            if (email === 'example@example.com' && pass === 'example') {
+                // window.open( URL, name, Specs )
+                // window.open('https://www.google.com', '_blank')
+                window.open('http://127.0.0.1:5500/components/homePg/home.html', '_top')
+
+            }
+            else {
+                alert('Incorrect email or password')
+            }
+        }
     </script>
     <script src="https://kit.fontawesome.com/cb79bb91cb.js" crossorigin="anonymous"></script>
 </body>
